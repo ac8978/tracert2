@@ -171,7 +171,6 @@ def get_route(hostname):
                     bytes = struct.calcsize("d")
                     timeSent = struct.unpack("d", recvPacket[28:28 + bytes])[0]
                     #Fill in start
-
                     tracelist1 = [str(ttl),str((timeReceived - timeSent) * 1000) + 'ms',str(addr[0]),str(dest[0])]
                     tracelist2.append(tracelist1)
                     #Fill in end
@@ -179,13 +178,11 @@ def get_route(hostname):
                     bytes = struct.calcsize("d")
                     timeSent = struct.unpack("d", recvPacket[28:28 + bytes])[0]
                     #Fill in start
-
                     tracelist1 = [str(ttl),str((timeReceived - timeSent) * 1000) + 'ms',str(addr[0]),str(dest[0])]
                     tracelist2.append(tracelist1)
                     #Fill in end
                 else:
                     #Fill in start
-
                     tracelist1= ["* * * No ICMP Packets recieved. Check Firewall"]
                     tracelist2.append(tracelist1)
                     #Fill in end
@@ -194,3 +191,8 @@ def get_route(hostname):
                 mySocket.close()
 
     return tracelist2
+
+#if __name__ == '__main__':
+#  get_route("bing.com")
+#  get_route("google.com")
+#  get_route("yahoo.com")
